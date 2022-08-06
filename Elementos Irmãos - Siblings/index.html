@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div>
+        <div id="div1">div 1</div>
+        <div id="div2">div 2</div>
+        <div id="div3">div 3</div>
+        <div id="div4">div 4</div>
+        <div id="div5">div 5</div>
+    </div>
+    <div>
+        <div id="div6">div 6</div>
+        <div id="div7">div 7</div>
+        <div id="div8">div 8</div>
+        <div id="div9">div 9</div>
+        <div id="div10">div 10</div>
+    </div>
+    <script>
+
+//.siblings ou irmãos é uma função do jQuery que seleciona todos irmãos
+//que estão no mesmo nivel do elemento, menos o proprio elemento
+//tambem é possivel selecionar apenas um elemento dos irmãos
+//do argumento no argumento do siblings
+        let selected = $("#div3").siblings("#div4")
+        console.log(selected)
+//.nextALL ou todos proximos vai selecionar todos irmãos apos o elemento
+//escolhido tambem posso utilizar no argument do nextALL o elemento
+        let select2 = $("#div3").nextAll()
+        console.log(select2)
+//.next ou proximo, parecido com o nextALL mas vai trazer apenas o proximo
+        let select3 = $("#div3").next()
+        console.log(select3)
+//.nextUntil ou "proximo até" vai selecionar todos até um elemento
+// escolhido no argumento do nextUntil 
+        let select4 = $("#div3").nextUntil("#div5")
+        console.log(select3)
+
+//OBS: todos next acima tambem tem prev ondo de trais inves de frente
+
+
+    </script>
+</body>
+</html>

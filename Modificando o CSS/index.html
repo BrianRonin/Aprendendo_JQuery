@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<body>
+    <style>
+
+    .bg-blue{
+        background-color: blue;
+    }
+
+   h3{
+       background-color: aqua;
+       margin-bottom: 50px;
+   }
+   .box{
+        box-sizing: border-box;   
+        width: 500px;
+        background-color: gray;
+        padding: 10px;
+        border: 5px solid black;
+        margin: 15px;
+        color: white;
+
+       font-size: 20px;
+   }
+    </style>
+
+
+    <h1 class="titulo">Lista de Compras</h1>
+
+    <h2>titulo 2</h2>
+
+    <h3>titulo 2</h3>
+
+    <div class="box"></div>
+
+
+    <script>
+    {
+        setTimeout (function() {
+            //.addClass adiciona uma classe, funcao do jQuery
+            $("h1").addClass("bg-blue")
+        },1000)
+
+        setTimeout(() => {
+            //.removeClass remove a classe, função do jQuery
+            $("h1").removeClass("bg-blue")
+        },3000)
+
+        setTimeout(() => {
+//.toggleClass adiciona a classe, se ja tiver essa classe remove a classe
+            $("h1").toggleClass("bg-blue")
+        },4000)
+    }
+//.css serve pra pegar algum objeto css usando o argumento, e o modificar
+//com o proximo argumento sendo o valor do objeto tambem posso
+//alterar mais de um css em um html no mesmo comando como objeto
+
+($("h2").css({
+    "background-color":"blue",
+    "font-size":"50px",
+}))
+
+{
+($("h3").css("background-color", "red"))
+}
+
+///////////////  DIMENSÃO  //////////////////////////////////////////////////////////////
+//funçoes do jQuery pra alterar a dimensão
+//todos width tambem tem height
+    let box = $(".box")
+//.width uma função do jQuery que altera a largura
+    box.width(400)
+//.innerWidth ou largura interna uma função que altera a largura + padding
+    box.innerWidth(400)
+//.outerWidth ou largura externa altera a largura + padding + borda
+    box.outerWidth(600)
+
+    box.append("largura:", box.width(), "<br>",
+    "largura + padding:", box.innerWidth(), "<br>",
+    "largura + padding + borda", box.outerWidth(), "<br>", 
+    "largura + padding + borda + margem:", box.outerWidth(true))
+
+    </script>
+
+</body>
+</html>

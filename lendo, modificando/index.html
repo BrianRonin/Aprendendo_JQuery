@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+<body>
+    
+    <h1>Minha lista 1</h1>
+    <input type="text" name="novo" id="novo" value="Novo item">
+    <ul id="lista1">
+        <li class="lista1">item1</li>
+        <li class="lista1">item2</li>
+        <li class="lista1">item3</li>
+        <li class="lista1">item4</li>
+        <li class="lista1">item5</li>
+    </ul>
+
+    <ul id="lista2">
+        <li class="lista2" name="Arroz">item1</li>
+        <li class="lista2" name="Feijão">item2</li>
+        <li class="lista2" name="Abacate">item3</li>
+        <li class="lista2" name="Abobrinha">item4</li>
+        <li class="lista2" name="Banana">item5</li>
+    </ul>
+
+    <ul id="lista3">
+        <li key="1" class="item1" name="Arroz">item1</li>
+        <li key="2" class="item2" name="Feijão">item2</li>
+        <li key="3" class="item3" name="Abacate">item3</li>
+        <li key="4" class="item4" name="Abobrinha">item4</li>
+        <li key="5" class="item5" name="Banana">item5</li>
+    </ul>
+
+<script>
+///////////  LENDO O CONTEUDO DE UM ELEMENTO  //////////////////////////////////////////////////////////////////////
+
+                          //.html vai imprimir o html
+    console.log($("#lista1").html())
+                          //.text vai imprimir o texto
+    console.log($("#lista1").text())
+                          //.val vai pegar o valor do elemento
+    console.log($("#novo").val())
+                //.attr vai pegar o atributo escolhido no argumento
+    console.log($("#novo").attr("name"))
+
+///////////  MODIFICANDO O CONTEUDO E CARACTERISTICAS DOS ELEMENTOS  //////////////////////////////////////////////////////////////////////////
+
+    console.log($("h1").text("Lista de Compras"))
+    console.log($("#novo").val("Arroz"))
+//como vou modificar o valor do atributo primeiro seleciono o atributo
+//depois modifico se não tiver pra modificar vai criar quenem no js
+    console.log($("#novo").attr("name", "item de compra"))
+
+//O primeiro argumento da função no segundo argumento do .attr do Jquery
+//              é o numero de array em que cada se aplica
+    console.log($(".lista1").attr("name", function(i){
+        return "item " + i
+    }))
+
+//O segundo argumento da função é o valor original
+    $(".lista2").attr("name", function (i, valorOriginal){
+        
+        return valorOriginal + i
+    })
+
+
+//adicionando um limite a caracteres que pode ser posto no imput
+    $("input").attr("maxlength", 5).attr("type", "password")
+
+////////////  SELECIONANDO ELEMENTOS POR ATRIBUTO  //////////////////////////////////////////////////////////////////
+
+$ ("#lista3").find("[key = 2]").remove()
+
+////////////  REMOVENDO/ESVAZIANDO ELEMENTOS  /////////////////////////////////////////////////////////////
+
+//.remove remove, no argumento posso escolher quais itens deve ser excluido
+// $("#lista1").remove(".item2, .item3")
+    //.empty esvazia deletando todos filhos do argumento selecionado
+// $("#lista1").empty()
+
+///////////  INSERINDO ELEMENTOS  ////////////////////////////////////////////////////////////////////
+
+let lista3 = $("#lista3")
+
+//.append vai inserir o html no final não renomeando todo html
+lista3.append("<li>Append</li>")
+
+//.prepend vai inserir o html no inicio não renomeando todo html
+lista3.prepend("<li>Prepend</li>")
+
+//.after vai inserir o html depois do fechamento do argumento
+lista3.after("<li>After</li>")
+
+//.before vai inserir o html antes do inicio do argumento
+lista3.before("<li>before</li>")
+
+</script>
+
+</body>
+</html>

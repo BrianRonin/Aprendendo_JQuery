@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #square {
+        width: 500px;
+        height: 500px;
+        background-color: brown;
+        /* display: none; */
+        position: absolute;
+    }
+    #green{
+        width: 300px;
+        height: 300px;
+        background-color: green;
+        position: absolute;
+    }
+    #show{
+        width: 100px;
+        height: 100px;
+        background-color: blueviolet;
+        position: absolute;
+        display: none;
+    }
+</style>
+<body>
+    <h1 class="query">Esse é um título em H1</h1>
+
+    <h1 class="titulo"> Outro título</h1>
+
+
+    <h1 class="tituloEvent">Esse é um título em H1 de "eventos"</h1>
+    
+    <h1 class="outroEvent" style="display: none"> Não saia agora</h1>
+
+    <button id="button">fade Out</button>
+
+    <button id="button2">fade In</button>
+
+    <button id="button3">fade To</button>
+
+    <button id="button4">fadeToggle</button>
+
+    <button id="button5">slideToggle</button>
+
+    <button id="button6">Animate</button>
+
+    <button id="button7">Hide</button>
+
+    <div id="green"></div>
+
+    <div id="square"></div>
+
+    <div id="show"></div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+        // $ isso é o jQuery
+        // ele serve pra selecionar quenem no css com
+        // "." pra classes e "#" pra ids ou h1, p, direto assim
+        // mas foi subistituido pelo queryselector que faz a mesma coisa
+       
+        // alguns frameworks podem utilizar o jquery como variavel ou sei
+        // la, assim dando conflito mas o jQuery tem essa função noConflict
+        // que ativando ela o jquery passa a ter que ser chamado pelo nome
+        // jquery inves do $, se usar $ com no conflict ativado nao pega
+        // mas tambem posso mudar a sintaxe do jquery colocando uma variavel
+        // no $.noConflict
+        
+        let jq = $.noConflict()
+        
+        jq(".titulo").hide();
+
+        setTimeout(()=>{
+            jq(".titulo").show();
+        }, 2000)
+
+/////// FAZENDO A MESMA COISA UTILIZANDO O JS SCRIPT QUERY SELECTOR ///////////////////////////////////////////////////////////////////////
+
+    console.log(document.querySelectorAll(".query"))
+    
+        document.querySelectorAll(".query").forEach(elemento =>{
+            elemento.style.display = "none"
+        })
+
+//////  EVENTOS  ////////////////////////////////////////////////////////////////////////
+
+
+    jq(".tituloEvent").click(()=>{
+        console.log("click")
+    })
+
+    jq(".tituloEvent").mouseenter(()=>{
+        console.log("Mouse enter")
+    })
+
+    jq(document).mouseleave(()=>{
+        console.log("saiu")
+        jq(".outroEvent").show()
+
+    })
+
+    jq(".tituloEvent").dblclick(()=>{
+        console.log("db click")
+    })
+
+
+////////  ANIMAÇÃO  //////////////////////////////////////////////////////////////////////////
+
+    jq("#button").click(() => {
+        jq("#square").fadeOut("fast")
+    })
+
+    jq("#button2").click(() => {
+        jq("#square").fadeIn(3000)
+    })
+
+    jq("#button3").click(() => {
+        jq("#square").fadeTo(1000, 0.5)
+    })
+
+    jq("#button4").click(() => {
+        jq("#square").fadeToggle()
+    })
+
+    jq("#button5").click(() => {
+        jq("#square").slideToggle(2000)
+    })
+
+    jq("#button6").click(() =>{
+        jq("#square").animate({height: 700 ,width: 200}, 3000 )
+    })
+
+/////////  CALLBACK  ////////////////////////////////////////////////////////////////////////////////
+
+    function callBack(){
+        console.log("Gren Escondido")
+            jq("#show").show(200)
+    }
+
+    jq("#button7").click(() => {
+        jq("#square").hide(2000, callBack)
+    })
+
+
+    </script>
+</body>
+</html>

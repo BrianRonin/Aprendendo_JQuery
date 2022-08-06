@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <style>
+        .div2{
+            background-color: gray;
+            color: white;
+        }
+    </style>
+    
+    <div id="container">
+        <div class="div1" id="div1">Div 1</div>
+        <div class="div2" id="div2">Div 2</div>
+        <div class="div1" id="div3">Div 3</div>
+        <div class="div2" id="div4">Div 4</div>
+        <div class="div1" id="div5">Div 5</div>
+    </div>
+    <div id="container2">
+        <div class="div2" id="div6">Div 6</div>
+        <div class="div1" id="div7">Div 7</div>
+        <div class="div2" id="div8">Div 8</div>
+        <div class="div1" id="div9">Div 9</div>
+        <div class="div2" id="div10">Div 10</div>
+    </div>
+
+
+
+    <script>
+
+//.filter ou filtro serve pra filtrar pra algo mais especifico
+//podendo ser tanto classe ou div ou id etc
+        let selected = $("#container2").children().filter(".div2")
+        
+        console.log(selected)
+
+//.first ou primeiro como o nome ja diz vai ser o primeiro o selecionado
+        let selected2 = $("#container2").children().first()
+//.last ou ultimo como o nome ja diz vai ser o ultimo o selecionado
+        let selected3 = $("#container2").children().last()
+//.not vai me selecionar tudo menos o no argumento do .not
+        let selected4 = $("#container2").children().not("#div8")
+//.eq vai selecionar pelo index que começa do 0
+        let selected5 = $("#container2").children().eq(2)
+
+
+
+        console.log(selected2)
+
+        
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+<body>
+    
+    <h1>Minha Lista 1</h1>
+    <ul id="lista1">
+        <li class="item1">item 1</li>
+        <li class="item2">item 2</li>
+        <li class="item3">item 3</li>
+        <li class="item4">item 4</li>
+        <li class="item5">item 5</li>
+    </ul>
+    
+    <h1>Minha Lista 2</h1>
+    <ul id="lista2">
+        <li class="item1">item 1</li>
+        <li class="item2">item 2</li>
+        <li class="item3">item 3</li>
+        <li class="item4">item 4</li>
+        <li class="item5">item 5</li>
+    </ul>
+
+    <script>
+
+       // $("#lista1 > .item2").hide()
+       
+       let lista1 = $("#lista1")
+        
+//o find do jQuery é uma função parecida com a função children do js
+//a diferença é duas no find você precisa ter um argumento pra servir de
+//filtro pra procurar diferente do children que não precisa de argumento
+//e seleciona todos os filhos ja o find procura com o seu argumento
+//tanto os filhos quanto netos ou bisnetos e ao encontrar o elemento
+//do filtro da pesquisa se for 2 resultados ele vai dar 2 resultados
+
+       lista1.find(".item2").hide()
+
+console.log(lista1.children())
+
+    </script>
+</body>
+</html>
